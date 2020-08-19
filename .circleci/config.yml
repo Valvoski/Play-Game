@@ -1,0 +1,92 @@
+print("Life Prediction")
+while True:
+    print("1. Play")
+    print("2. Exit")
+    choice = int(input("Enter your choice: "))
+    if (choice>=1 and choice<=2):
+        if choice == 1:
+            hard = 1
+            sallary = 1
+            food = 10
+            heart = 10
+            balance = 10
+            while True:
+                print("""
+                1)      Balance
+                2)      Investment
+                3)      Working
+                4)      Buy 3 Food, Sell 2 Balance
+                5)      Buy 1 Medicine, Sell 2 Balance
+                6)      Buy 2 Gaming Tool, Sell 3 Balance
+                7)      Gaming
+                8)      Exit
+                """)
+                try:
+                    Option=int(input("Enter Option: "))
+                except Exception as e:
+                    print("Error"),e
+                    print("Enter 1,2,3 and 4 only")
+                    continue
+                if Option==1:
+                    print("Balance:",balance)
+                    print("Healty:",heart)
+                    print("Hungry:",food)
+                    print("Sallary:",sallary)
+                if Option==2:
+                    BetIn=int(input("Enter Invesment: "))
+                    import random
+                    Win = 10
+                    Lose = 0
+                    BetOut=random.choice([Win,Lose])
+                    if BetOut==10:
+                        balance=(balance+BetIn)
+                        print("Balance :",balance)
+                        print("Sell")
+                    else:
+                        balance=(balance-BetIn)
+                        print("Balance :",balance)
+                        print("Buy")
+                 if Option==3:
+                    food=(food-hard)
+                    hard=(hard+1)
+                    balance=(balance+sallary)
+                    sallary=(sallary+1)
+                    print("Balance :",balance)
+                    print("Sallary :",sallary)
+                    print("Hungry :",food)
+                if Option==4:
+                    food=food+3
+                    balance=balance-2
+                    print("Hungry :",food)
+                    print("Balance",balance)
+                if Option==5:
+                    heart=heart+1
+                    balance=balance-2
+                    print("Healty :",heart)
+                    print("Balance :",balance)
+                if Option==6:
+                    sallary=sallary+2
+                    balance=balance-3
+                    print("Balance :",balance)
+                    print("Sallary :",sallary)
+                if Option==7:
+                    balance=balance+sallary
+                    food=food-2
+                    heart=heart-1
+                    print("Balance :",balance)
+                    print("Hungry :",food)
+                    print("Healty :",heart)
+                 if Option==8:
+                    exit()
+                if balance<=0:
+                    print("You Homeless and Bankrupt")
+                    exit()
+                if food<=0:
+                    heart=0
+                if heart<=0:
+                    print("You Die")
+                    exit()
+    elif choice == 2:
+        exit()
+    else:
+        print("Wrong input..!!")
